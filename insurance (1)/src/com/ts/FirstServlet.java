@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class FirstServlet
@@ -24,44 +25,35 @@ public class FirstServlet extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}*/
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
 		String uid=request.getParameter("uid");
-		String pwd=request.getParameter("pwd");
-		String role=new InsuranceDAO().isUser(uid,pwd);
+		String pwd=request.getParameter("password");
+		UserBean details=new InsuranceDAO().isUser(uid,pwd);
 		out.print("pass");
-		if(role=="")
+		if(details.getRole()=="")
 		{
 			out.print("error");
-		RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");
 		rd.include(request, response);
 		}
 		else
 		{
-			if(role.equals("user"))
+			HttpSession session=request.getSession();
+			session.setAttribute("Uname",details.getUsername());
+			if(details.getRole().equals("user"))
 			{
-				response.sendRedirect("mainmenu_user,jsp");
+				response.sendRedirect("Mainmenu_user.jsp");
 			}
 		
-		else if(role.equals("admin"))
+		else if(details.getRole().equals("admin"))
 		{
-			response.sendRedirect("mainmenu_admin,jsp");
+			response.sendRedirect("Mainmenu_admin.jsp");
 			}
 		}
 		
-	
-		
-		//doGet(request, response);
 	}
 
 }

@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="Login" method="Post">
+<form action="FirstServlet" method="Post">
 <div id="top" style=height:100px>
 <div id="middle" style="height:200px;border:solid";>
 <center><h1>login</h1><br>
-username<input type="text" name="uid"><br>
-password<input type="password" name="password"><br>
+username<input type="text" name="uid"><br><br>
+password<input type="password" name="password"><br><br>
 <input type="submit" value="submit"style="border:solid;font-weight:bold;">&emsp;
 <input type="button" value="clear"style="border:solid;font-weight:bold;">&emsp;
 <input type="button" value="cancel"style="border:solid;font-weight:bold;">&emsp;

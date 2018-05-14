@@ -7,25 +7,30 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class InsuranceDAO {
-	public String isUser(String uid,String pwd)
+	public UserBean isUser(String uid,String pwd)
 	{
-		String role="";
+		UserBean details=new UserBean();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql:/localhost:3309/insurance1","root","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/insurance1","root","root");
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("select role from underwriter");
+			ResultSet rs=stmt.executeQuery("select role,uname from underwriter where uid='"+uid+"' and pwd='"+pwd+"'");
 			while(rs.next())
-				role=rs.getString(0);
+			{
+				details.setRole(rs.getString(1));
+			details.setUsername(rs.getString(2));
+			}
 			rs.close();
 			con.close();
-			return role;
+			
 		
 					}
 		catch(Exception e) {
 			System.out.println(e);
 		}
-		return role;
+		finally {
+		return details;
 	}
 
+	}
 }

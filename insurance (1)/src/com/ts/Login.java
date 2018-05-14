@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
@@ -30,9 +31,9 @@ public class Login extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		String uid=request.getParameter("uid");
 		String pwd=request.getParameter("pwd");
-		String role=new InsuranceDAO().isUser(uid,pwd);
+		UserBean details=new InsuranceDAO().isUser(uid,pwd);
 		out.print("pass");
-		if(role=="")
+		if(details.getRole()=="")
 		{
 			out.print("error");
 		RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");
@@ -40,14 +41,16 @@ public class Login extends HttpServlet {
 		}
 		else
 		{
-			if(role.equals("user"))
+			HttpSession session=request.getSession();
+			session.setAttribute("Uname",details.getUsername());
+			if(details.getRole().equals("user"))
 			{
-				response.sendRedirect("mainmenu_user,jsp");
+				response.sendRedirect("mainmenu_user.jsp");
 			}
 		
-		else if(role.equals("admin"))
+		else if(details.getRole().equals("admin"))
 		{
-			response.sendRedirect("mainmenu_admin,jsp");
+			response.sendRedirect("mainmenu_admin.jsp");
 			}
 		}
 		
