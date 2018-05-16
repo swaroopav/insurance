@@ -14,9 +14,9 @@ out.print("<h2>welcome "+n+"</h2>");
 %></div>
 <div id="middle" style="height:200px;border:solid;">
 <center><h1>welcome to ABZ Insurance</h1>
-<a href="AutoPremium.jsp"><h3>Compute Auto insurance premium</h3></a>
+<a href="http://localhost:8088/insurance_(1)/CalcAuto"><h3>Compute Auto insurance premium</h3></a>
 </center>
 <div id="bottom"></div>
 
-</body>
+</body> 
 </html>

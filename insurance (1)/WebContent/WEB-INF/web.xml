@@ -49,4 +49,14 @@
     <servlet-name>FirstServlet</servlet-name>
     <url-pattern>/FirstServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CalcAuto</display-name>
+    <servlet-name>CalcAuto</servlet-name>
+    <servlet-class>com.ts.CalcAuto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcAuto</servlet-name>
+    <url-pattern>/CalcAuto</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -16,6 +16,7 @@ password<input type="password" name="password"><br><br>
 <input type="submit" value="submit"style="border:solid;font-weight:bold;">&emsp;
 <input type="button" value="clear"style="border:solid;font-weight:bold;">&emsp;
 <input type="button" value="cancel"style="border:solid;font-weight:bold;">&emsp;
+<br>
 </center>
 </div>
 </form>
