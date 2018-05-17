@@ -61,7 +61,35 @@ public ArrayList<String> AutoModelList()
 }
 
 }
+
+public int basePremium(String model)
+{
+	int base=0;
+	try{ 
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection(  
+		"jdbc:mysql://localhost:3306/insurance1","root","root");  
+		//here sonoo is database name, root is username and password  
+		
+		Statement stmt=con.createStatement();  
+		ResultSet rs=stmt.executeQuery("select Auto_base_Premium  from auto_rates where vehicle_model_name='"+model+"'");  
+		
+		while(rs.next())  
+		{
+	base=(rs.getInt(1));
+		}
+		rs.close();
+		con.close(); 
+	}
+		catch(Exception e){ System.out.println(e);} 
+	finally {
+		return base;
+	}
+	
 }
+
+}
+
 
 
 

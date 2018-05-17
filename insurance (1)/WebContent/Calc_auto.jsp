@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="PremiumCalc" method="post">
 <center>
 <div id="top"style="height:100px"></div>
  <div id="middle"style="height:200px;border:solid">
@@ -33,5 +34,6 @@ out.print("</select>");
 <input type="button" value="Back"style="border:solid;font-weight:bold;">
 </div>
 <div id="bottom"></div>
+</form>
 </body>
 </html>
