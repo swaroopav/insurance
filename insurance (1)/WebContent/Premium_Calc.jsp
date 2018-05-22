@@ -7,11 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="FinalPrice" method="post">
+
 
 
 <div id="middle" style="border:solid;">
-<h1>Calculate Auto insurance premium</h1>
+<center>
+<h1  style="color:blue;">Calculate Auto insurance premium</h1>
+</center>
 <br>
 
 <%

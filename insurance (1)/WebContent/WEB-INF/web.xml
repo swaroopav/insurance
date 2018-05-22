@@ -69,4 +69,14 @@
     <servlet-name>PremiumCalc</servlet-name>
     <url-pattern>/PremiumCalc</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FinalPrice</display-name>
+    <servlet-name>FinalPrice</servlet-name>
+    <servlet-class>com.ts.FinalPrice</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalPrice</servlet-name>
+    <url-pattern>/FinalPrice</url-pattern>
+  </servlet-mapping>
 </web-app>
